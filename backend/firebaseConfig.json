@@ -1,0 +1,10 @@
+{
+  "apiKey": "AIzaSyAp1JoqciF3Yc1UWXvJIEQv6B4nO0yU_DA",
+  "authDomain": "jira-clone-angular-backend.firebaseapp.com",
+  "databaseURL": "https://jira-clone-angular-backend.firebaseio.com",
+  "projectId": "jira-clone-angular-backend",
+  "storageBucket": "jira-clone-angular-backend.appspot.com",
+  "messagingSenderId": "648091392525",
+  "appId": "1:648091392525:web:aebaa35beea73f007fd344",
+  "measurementId": "G-HCHEBGJPRN"
+}

@@ -16,21 +16,21 @@ import { ProjectStore } from './project.store';
 export class ProjectService {
   baseUrl: string;
 
-  constructor(private _http: HttpClient, private _store: ProjectStore) {
+  constructor(private http: HttpClient, private store: ProjectStore) {
     this.baseUrl = environment.apiUrl;
   }
 
   setLoading(isLoading: boolean) {
-    this._store.setLoading(isLoading);
+    this.store.setLoading(isLoading);
   }
 
   getProject() {
-    this._http
+    this.http
       .get<JProject>(`${this.baseUrl}/project`)
       .pipe(
-        setLoading(this._store),
+        setLoading(this.store),
         tap((project) => {
-          this._store.update((state) => {
+          this.store.update((state) => {
             return {
               ...state,
               ...project
@@ -38,7 +38,7 @@ export class ProjectService {
           });
         }),
         catchError((error) => {
-          this._store.setError(error);
+          this.store.setError(error);
           return of(error);
         })
       )
@@ -46,7 +46,7 @@ export class ProjectService {
   }
 
   updateProject(project: Partial<JProject>) {
-    this._store.update((state) => ({
+    this.store.update((state) => ({
       ...state,
       ...project
     }));
@@ -54,8 +54,8 @@ export class ProjectService {
 
   updateIssue(issue: JIssue) {
     issue.updatedAt = DateUtil.getNow();
-    this._store.update((state) => {
-      let issues = arrayUpsert(state.issues, issue.id, issue);
+    this.store.update((state) => {
+      const issues = arrayUpsert(state.issues, issue.id, issue);
       return {
         ...state,
         issues
@@ -64,8 +64,8 @@ export class ProjectService {
   }
 
   deleteIssue(issueId: string) {
-    this._store.update((state) => {
-      let issues = arrayRemove(state.issues, issueId);
+    this.store.update((state) => {
+      const issues = arrayRemove(state.issues, issueId);
       return {
         ...state,
         issues
@@ -74,13 +74,13 @@ export class ProjectService {
   }
 
   updateIssueComment(issueId: string, comment: JComment) {
-    let allIssues = this._store.getValue().issues;
-    let issue = allIssues.find((x) => x.id === issueId);
+    const allIssues = this.store.getValue().issues;
+    const issue = allIssues.find((x) => x.id === issueId);
     if (!issue) {
       return;
     }
 
-    let comments = arrayUpsert(issue.comments ?? [], comment.id, comment);
+    const comments = arrayUpsert(issue.comments ?? [], comment.id, comment);
     this.updateIssue({
       ...issue,
       comments

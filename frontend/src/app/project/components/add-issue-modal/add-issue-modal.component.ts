@@ -15,6 +15,7 @@ import { NoWhitespaceValidator } from '@trungk18/core/validators/no-whitespace.v
 import { DateUtil } from '@trungk18/project/utils/date';
 
 @Component({
+  // tslint:disable-next-line: component-selector
   selector: 'add-issue-modal',
   templateUrl: './add-issue-modal.component.html',
   styleUrls: ['./add-issue-modal.component.scss']
@@ -31,29 +32,29 @@ export class AddIssueModalComponent implements OnInit {
   }
 
   constructor(
-    private _fb: FormBuilder,
-    private _modalRef: NzModalRef,
-    private _projectService: ProjectService,
-    public _projectQuery: ProjectQuery
+    private fb: FormBuilder,
+    private modalRef: NzModalRef,
+    private projectService: ProjectService,
+    public projectQuery: ProjectQuery
   ) {}
 
   ngOnInit(): void {
     this.initForm();
-    this.reporterUsers$ = this._projectQuery.users$.pipe(
+    this.reporterUsers$ = this.projectQuery.users$.pipe(
       untilDestroyed(this),
       tap((users) => {
-        let [user] = users;
+        const [user] = users;
         if (user) {
           this.f.reporterId.patchValue(user.id);
         }
       })
     );
 
-    this.assignees$ = this._projectQuery.users$;
+    this.assignees$ = this.projectQuery.users$;
   }
 
   initForm() {
-    this.issueForm = this._fb.group({
+    this.issueForm = this.fb.group({
       type: [IssueType.TASK],
       priority: [IssuePriority.MEDIUM],
       title: ['', NoWhitespaceValidator()],
@@ -67,8 +68,8 @@ export class AddIssueModalComponent implements OnInit {
     if (this.issueForm.invalid) {
       return;
     }
-    let now = DateUtil.getNow();
-    let issue: JIssue = {
+    const now = DateUtil.getNow();
+    const issue: JIssue = {
       ...this.issueForm.getRawValue(),
       id: IssueUtil.getRandomId(),
       status: IssueStatus.BACKLOG,
@@ -76,7 +77,7 @@ export class AddIssueModalComponent implements OnInit {
       updatedAt: now
     };
 
-    this._projectService.updateIssue(issue);
+    this.projectService.updateIssue(issue);
     this.closeModal();
   }
 
@@ -85,6 +86,6 @@ export class AddIssueModalComponent implements OnInit {
   }
 
   closeModal() {
-    this._modalRef.close();
+    this.modalRef.close();
   }
 }

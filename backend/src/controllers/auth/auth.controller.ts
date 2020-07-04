@@ -4,7 +4,7 @@ import { CurrentUser } from './user';
 @Controller('auth')
 export class AuthController {
   @Post()
-  login() {
+  login(): any {
     return CurrentUser;
   }
 }
