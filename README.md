@@ -6,35 +6,6 @@ There have been a handful of cool Jira-cloned apps written in `React`/`VueJS`, w
 
 This is not only a simplified Jira clone built with Angular 9, but also an example of a **modern**, **real-world** Angular codebase.
 
-## Working application
-
-Check out the **live demo** -> https://jira.trungk18.com
-
-![Jira clone built with Angular 9 and Akita][demo]
-
-If you like my work, feel free to:
-
-- [![Tweet](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)][tweet] about Angular Jira clone
-- :star: this repository. And we will be happy together :)
-
-Thanks a bunch for stopping by and supporting me!
-
-[tweet]: https://twitter.com/intent/tweet?url=https%3A%2F%2Fgithub.com%2Ftrungk18%2Fjira-clone-angular&text=Awesome%20Jira%20clone%20app%20built%20with%20Angular%209%20and%20Akita&hashtags=angular,akita,typescript
-
-## Who is it for 🤷‍♀️
-
-I have been working with Angular for about four years. I built cool stuff at [Zyllem][zyllem] but almost all of them are internal apps which is difficult to show.
-
-This is a showcase application I've built in my spare time to experiment the new library that I wanted to try before: `Akita`, `TailwindCSS`, `ng-zorro`.
-
-There are many Angular examples on the web but most of them are way too simple. I like to think that this codebase contains enough complexity to offer valuable insights to **Angular developers of all skill levels** while still being _relatively_ easy to understand.
-
----
-
-This piece of work is also part of our technical series [angular-vietnam/100-days-of-angular][100days] which aims at enabling everyone, after 100 days of learning Angular with us, to **self-build their application with the similar scale**. Our desire is to advocate and grow the Angular developer community in Vietnam.
-
-[zyllem]: https://www.zyllem.com/
-
 ## Tech stack
 
 ![Tech logos][stack]
@@ -48,6 +19,7 @@ This piece of work is also part of our technical series [angular-vietnam/100-day
   - [ng-zorro][ng-zorro] UI component: `tooltip`, `modal`, `select`, `icon` and more.
   - [ngx-quill][quill]
 - [Netlify][netlify]
+- [Firebase][firebase]
 
 [cli]: https://cli.angular.io/
 [akita]: https://datorama.github.io/akita/
@@ -58,47 +30,6 @@ This piece of work is also part of our technical series [angular-vietnam/100-day
 [quill]: https://github.com/KillerCodeMonkey/ngx-quill
 [netlify]: https://www.netlify.com/
 [firebase]: https://firebase.google.com/
-
-## Features and Roadmap
-
-I set the tentative deadline for motivating myself to finish the work on time. Otherwise, It will take forever to complete :)
-
-### Phase 1 - Angular application and simple Nest API
-
-> June 13 - 27, 2020
-
-- [x] Proven, scalable, and easy to understand project structure
-- [x] Simple drag and drop kanban board
-- [x] Add/update issue
-- [x] Search/filtering issues
-- [x] Add comments
-
-> Noted: All of your interactions with data such as leave a comment or change the issue detail will not be saved to the persistent database. Currently, the application will serve a fixed structure of data every time you open the app. It means if you reload the browser, all of your changes will be gone.
->
-> Phase 2 will bring you a proper API where you can log in and save your work.
-
-While working with this application, I have the opportunity to revisit some of the interesting topics:
-
-- TailwindCSS configuration - that's awesome
-- Scrollable layout with Flexbox
-- Deploy Angular application to Netlify
-
-I will take two weeks break to:
-
-- Fix bugs and UI enhancements for Angular Jira clone.
-- Continue working with the [typescript-data-structures][typescript-dsa] repo.
-
-[typescript-dsa]: https://github.com/trungk18/typescript-data-structures
-
-### Phase 2
-
-> July 10 - 25, 2020
-
-- [ ] Refactor the mono repo to use Nx Workspace
-- [ ] GraphQL API and store data on the actual database
-- [ ] Authentication
-- [ ] Websocket realtime update
-- [ ] Interactive report
 
 ## Tutorial
 
