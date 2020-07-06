@@ -23,6 +23,16 @@
 [netlify]: https://www.netlify.com/
 [firebase]: https://firebase.google.com/
 
+## Setting up development environment in this project 🛠
+
+- `git clone https://github.com/nguyenbinhanltv/jira-clone-angular.git`
+- `cd jira-clone-angular`
+- `npm run build:back` for build the API
+- `npm run start:back` for running the API
+- The API server should run on `http://localhost:5000/jira-clone-angular-backend/us-central1/api`
+- `npm run start:front` for angular web application
+- The app should run on `http://localhost:4200/`
+
 ## Time spending
 
 It is a side project that I only spent time outside of the office hours to work on. One day, my team and I were fire fighting on PROD until 11 PM. After taking a shower, I continue with Angular Jira clone for another two hours...
