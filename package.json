@@ -1,22 +1,20 @@
 {
   "name": "jira-clone-angular",
   "version": "1.0.0",
-  "description": "A simplified Jira clone built with Angular 9 and Akita",
+  "description": "A simplified Jira clone built with Angular 9 and Firebase",
   "scripts": {
     "install-dependencies": "npm run install-dependencies-front && npm run install-dependencies-back",
     "install-dependencies-front": "cd frontend && npm i",
     "install-dependencies-back": "cd backend && npm i",
     "start:front": "npm run install-dependencies-front && cd frontend && npm start",
     "build:front": "cd frontend && npm run build",
-    "start:back": "npm run install-dependencies-back && cd backend && npm run start:dev",
-    "build:back": "cd backend && npm run build",
-    "build": "npm run install-dependencies && npm run build:back && npm run build:front",
-    "heroku-postbuild": "npm run install-dependencies-back && npm run build:back",
-    "netlify-build": "npm run install-dependencies-front && npm run build:front"
+    "start:back": "cd backend && firebase serve --only functions",
+    "build:back": "npm run install-dependencies-back && cd backend && npm run build",
+    "build": "npm run install-dependencies && npm run build:back && npm run build:front"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trungk18/jira-clone-angular.git"
+    "url": "git+https://github.com/nguyenbinhanltv/jira-clone-angular.git"
   },
   "keywords": [
     "angular",
@@ -30,7 +28,6 @@
   "bugs": {
     "url": "https://github.com/trungk18/jira-clone-angular/issues"
   },
-  "homepage": "https://github.com/trungk18/jira-clone-angular#readme",
   "engines": {
     "node": "12.x"
   }
