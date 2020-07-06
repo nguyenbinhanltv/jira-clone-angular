@@ -8,8 +8,6 @@ This is not only a simplified Jira clone built with Angular 9, but also an examp
 
 ## Tech stack
 
-![Tech logos][stack]
-
 - [Angular CLI][cli]
 - [Akita][akita] state management
 - [NestJS][nestjs]
@@ -31,23 +29,6 @@ This is not only a simplified Jira clone built with Angular 9, but also an examp
 [netlify]: https://www.netlify.com/
 [firebase]: https://firebase.google.com/
 
-## Tutorial
-
-When I look at the application, it is huge. When the task is huge, you usually don't know where and how to start working with them. I started to break the big task into a [simple to-do list on notion][todo-list]. Once I know what needs to be done, what I need is to follow the plan. That's my approach.
-
-I learned a lot of stuff. I know you might also have a curiosity about the process of building the same scale app as well. That's why I am writing a tutorial series on how I built Angular Jira clone from scratch. I hope you guys will learn something from that too :)
-
-I will try to be as detailed as possible. Hopefully through the tutorial, you will get the idea and will start working on your own application soon. Please bear with me.
-
-Its series will also be published in Vietnamese as part of our [angular-vietnam/100-days-of-angular][100days].
-
-| Part | Description                                                                     | Status |
-| ---- | ------------------------------------------------------------------------------- | ------ |
-| 01   | [Create a new repository and set up a new Angular application with CLI][part01] | Done   |
-
-[part01]: https://trungk18.com/experience/angular-jira-clone-tutorial-01-planning-and-set-up
-[todo-list]: https://www.notion.so/trungk18/Tasks-636be5c5c0dd4d8cab30808e4e41facc
-
 ## Time spending
 
 It is a side project that I only spent time outside of the office hours to work on. One day, my team and I were fire fighting on PROD until 11 PM. After taking a shower, I continue with Angular Jira clone for another two hours...
@@ -59,22 +40,6 @@ I really enjoyed working on this project. The interactive kanban board took me s
 [stranger]: [https://www.bingeclock.com/s/stranger-things/]
 
 ![Jira clone built with Angular 9 and Akita - Time spending][time]
-
-## What's currently missing?
-
-There are missing features from the live demo which should exist in a real product. All of them will be finished on Phase 2:
-
-### Proper backend API
-
-I built a very simple NestJS API to send a fixed data structure to the client. All of your interactivity with data will only be saved on the memory. If you refresh the page, it will be gone. Phase 2 will bring the application to live by saving the data into a database.
-
-### Proper authentication system 🔐
-
-I am currently sending the same email and a random password to the server without any check to get the current user back. Phase 2 will also bring a proper authentication system.
-
-### Accessibility ♿
-
-Not all components have properly defined [aria attributes](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA), visual focus indicators, etc.
 
 ## Setting up development environment 🛠
 
