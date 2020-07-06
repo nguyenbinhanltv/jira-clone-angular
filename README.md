@@ -48,7 +48,6 @@ This piece of work is also part of our technical series [angular-vietnam/100-day
   - [ng-zorro][ng-zorro] UI component: `tooltip`, `modal`, `select`, `icon` and more.
   - [ngx-quill][quill]
 - [Netlify][netlify]
-- [Heroku][heroku]
 
 [cli]: https://cli.angular.io/
 [akita]: https://datorama.github.io/akita/
@@ -58,7 +57,6 @@ This piece of work is also part of our technical series [angular-vietnam/100-day
 [ng-zorro]: https://ng.ant.design/docs/introduce/en
 [quill]: https://github.com/KillerCodeMonkey/ngx-quill
 [netlify]: https://www.netlify.com/
-[heroku]: https://www.heroku.com/
 
 ## Features and Roadmap
 
