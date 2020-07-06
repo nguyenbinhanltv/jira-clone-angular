@@ -1,11 +1,5 @@
 # A simplified Jira clone built with Angular 9 and Akita
 
-> Phase 2 will start off very soon with several promisingly exciting features: GraphQL, Authentication, and more.
-
-There have been a handful of cool Jira-cloned apps written in `React`/`VueJS`, which makes me wonder **Why not Angular**? And here you go.
-
-This is not only a simplified Jira clone built with Angular 9, but also an example of a **modern**, **real-world** Angular codebase.
-
 ## Tech stack
 
 - [Angular CLI][cli]
