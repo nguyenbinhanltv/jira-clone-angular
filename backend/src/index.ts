@@ -8,7 +8,9 @@ import * as cors from 'cors';
 import * as admin from 'firebase-admin';
 import * as serviceAccount from '../serviceAccountKey.json';
 import * as firebaseConfig from '../firebaseConfig.json';
-import * as bodyParser from "body-parser";
+import * as bodyParser from 'body-parser';
+
+import * as firebase from 'firebase';
 
 const server = express();
 const serviceAccountFirebase = serviceAccount as admin.ServiceAccount;
@@ -17,6 +19,8 @@ admin.initializeApp({
   credential: admin.credential.cert(serviceAccountFirebase),
   databaseURL: firebaseConfig.databaseURL
 });
+
+firebase.initializeApp(firebaseConfig);
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const createNestServer = async (expressInstance) => {
