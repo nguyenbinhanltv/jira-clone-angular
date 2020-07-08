@@ -70,5 +70,5 @@
   "engines": {
     "node": "8"
   },
-  "main": "dist/index.js"
+  "main": "dist/src/index.js"
 }

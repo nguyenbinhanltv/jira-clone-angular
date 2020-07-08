@@ -5,7 +5,17 @@ import * as functions from 'firebase-functions';
 import * as express from 'express';
 import * as cors from 'cors';
 
+import * as admin from 'firebase-admin';
+import * as serviceAccount from '../serviceAccountKey.json';
+import * as firebaseConfig from '../firebaseConfig.json';
+
 const server = express();
+const serviceAccountFirebase = serviceAccount as admin.ServiceAccount;
+
+admin.initializeApp({
+  credential: admin.credential.cert(serviceAccountFirebase),
+  databaseURL: firebaseConfig.databaseURL
+});
 
 // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
 export const createNestServer = async (expressInstance) => {
