@@ -8,6 +8,7 @@ import * as cors from 'cors';
 import * as admin from 'firebase-admin';
 import * as serviceAccount from '../serviceAccountKey.json';
 import * as firebaseConfig from '../firebaseConfig.json';
+import * as bodyParser from "body-parser";
 
 const server = express();
 const serviceAccountFirebase = serviceAccount as admin.ServiceAccount;
@@ -28,6 +29,8 @@ export const createNestServer = async (expressInstance) => {
 };
 
 server.use(cors());
+server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({ extended: false }));
 
 createNestServer(server)
 .then(() => console.log('Server Running'))
