@@ -43,7 +43,7 @@ export class LoginPayload {
   email: string;
   password: string;
   constructor() {
-    this.email = 'trungk18@gmail.com';
-    this.password = `${new Date().getTime()}`;
+    this.email = 'nguyenbinhanltv@gmail.com';
+    this.password = '123456';
   }
 }

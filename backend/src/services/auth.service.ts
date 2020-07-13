@@ -9,7 +9,7 @@ export class AuthService {
 
     // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
     updateUserData(user: any): Promise<FirebaseFirestore.WriteResult> {
-        const userRef = this.db.doc(`users${user.uid}`);
+        const userRef = this.db.doc(`users/${user.uid}`);
 
         const data: User = {
             id: user.uid,

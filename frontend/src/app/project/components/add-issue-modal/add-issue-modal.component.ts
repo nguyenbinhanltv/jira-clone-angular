@@ -77,6 +77,8 @@ export class AddIssueModalComponent implements OnInit {
       updatedAt: now
     };
 
+    console.log(issue);
+
     this.projectService.updateIssue(issue);
     this.closeModal();
   }

@@ -1,5 +1,5 @@
 import { Controller, Post, Body } from '@nestjs/common';
-import { User, CurrentUser } from './user';
+import { User } from './user';
 
 import * as admin from 'firebase-admin';
 import * as firebaseHelper from 'firebase-functions-helper/dist';
@@ -8,6 +8,7 @@ import * as firebase from 'firebase';
 import 'firebase/auth';
 import 'firebase/database';
 import { AuthService } from 'src/services/auth.service';
+import { throwError } from 'rxjs';
 
 @Controller('auth')
 export class AuthController {
@@ -24,12 +25,13 @@ export class AuthController {
   // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
   async login(@Body() body): Promise<User> {
 
-    // const credetial = await this.firebaseAuth.signInWithEmailAndPassword(body.email, body.password);
+    const credetial = await this.firebaseAuth.signInWithEmailAndPassword(body.email, body.password);
     // this.authService.updateUserData(credetial.user)
-    // .then(data => console.log(data));
+    // .then(data => console.log(data))
+    // .catch(err => throwError(err));
 
-    // return firebaseHelper.firestore.getDocument(this.db, 'users', credetial.user.uid);
-    return CurrentUser;
+    const currentUser = firebaseHelper.firestore.getDocument(this.db, 'users', credetial.user.uid);
+    return currentUser;
   }
 
 }

@@ -1,42 +1,76 @@
+interface User {
+  id: string;
+  name: string;
+  avatarUrl: string;
+  projectId: string;
+}
+
+interface Issue {
+  id: string,
+  title: string,
+  description: string,
+  type: string,
+  status: string,
+  priority: string,
+  listPosition: number,
+  createdAt: string,
+  updatedAt: string,
+  reporterId: string,
+  userIds: Array<string>
+}
+
+export interface Project {
+  id: string;
+  name: string;
+  url: string;
+  description: string;
+  category: string;
+  createAt: string;
+  updateAt: string;
+  users: Array<User>;
+  issue: Array<Issue>;
+}
+
 export const Project = {
   id: '140892',
-  name: 'Angular Jira Clone',
-  url: 'https://github.com/trungk18/jira-clone-angular',
-  description: 'A Jira clone app built with Angular and Akita - by trungk18',
+  name: 'ITSS Angular Jira Clone',
+  url: 'https://github.com/nguyenbinhanltv/jira-clone-angular',
+  description:
+    'A Jira clone app built with Angular, Akita, Firebase, And Nestjs',
   category: 'Software',
   createdAt: '2020-06-12T16:00:00.000Z',
   updatedAt: '2020-06-13T16:00:00.000Z',
   users: [
     {
-      id: 'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
+      id: 'qCCLitIicDSoYri9HktzwenWeBq2',
       name: 'Gia Linh',
       avatarUrl:
         'https://scontent.fdad3-3.fna.fbcdn.net/v/t1.0-1/p100x100/104261807_2700237350216575_373250270826185587_n.jpg?_nc_cat=108&_nc_sid=7206a8&_nc_oc=AQkU67fTzFbpwdJKLH8-IbLhro4ZqPh1Gf66u3b3FLXe2vtGNzUKx8fD2y6yLuBJKDUC-AMhPhTOpieC2Y61pirr&_nc_ht=scontent.fdad3-3.fna&_nc_tp=6&oh=8df5fb135ce640a37fc4285eb547b6d4&oe=5F2D1030',
       projectId: '140892',
     },
     {
-      id: '7ac265f9-b9ac-443f-a2b2-795682e579a4',
+      id: 'qgnw1SYg9xgOXf3bT5aKJheP9643',
       name: 'Huynh Duc',
       avatarUrl:
         'https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-1/p100x100/102659664_962210760898666_4895454007840805013_n.jpg?_nc_cat=103&_nc_sid=7206a8&_nc_oc=AQnMBmD2Dj1mX-EqY4OtQtPx7C9zaClg0We1Y07e7lKQLXPUlbCsDt4EcgnpRFHRoxFPuRh8ZqWsucNRD4jk8qSC&_nc_ht=scontent.fdad3-1.fna&_nc_tp=6&oh=f24e97a5c47f6998ccdceea24c302218&oe=5F2B0AE5',
       projectId: '140892',
     },
     {
-      id: '94502aad-c97f-43e1-a9d1-28cf3e4937a7',
+      id: 'refX8wo6qRQDykJOLB1mJHwRdQX2',
       name: 'Minh Tuan',
       avatarUrl:
         'https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-1/p100x100/106528149_646782815922947_7801399467895756321_n.jpg?_nc_cat=103&_nc_sid=7206a8&_nc_oc=AQmPWOnYQ_OORDslvmlwmY-DyXNXoWtxXqIqCaJs1JYZrJe-ake22pcPPwYfBszm-dMBoGp0f-FjeHIYXkKG2qR3&_nc_ht=scontent.fdad3-1.fna&_nc_tp=6&oh=ef463b8d93d6bbfc50e03aee1d95c05c&oe=5F2D0BDC',
       projectId: '140892',
     },
     {
-      id: '610451aa-10c8-4d7e-9363-311357c0b0dd',
+      id: 'XnY4TAu295bHzbnwgjsYA7q8V9S2',
       name: 'Quoc Thang',
       avatarUrl:
         'https://scontent.fdad3-1.fna.fbcdn.net/v/t1.0-1/p100x100/89885037_1410919889087661_1356659012073947136_o.jpg?_nc_cat=107&_nc_sid=7206a8&_nc_oc=AQlQfTtKh2bW26DDbUu77TnCKCsOyBA0F8w_pqVoZFB2HUkfJjFH_Xwo_142_eI57ROxdBAKXcp5nN5gh3_ZogFS&_nc_ht=scontent.fdad3-1.fna&_nc_tp=6&oh=d0bbd6d7ddebe06fe07a013e1c6b9d71&oe=5F2B01E2',
       projectId: '140892',
     },
     {
-      id: '081ccaa1-5595-4621-8074-ede4927e67b0',
+      id: 'pk0inEQE3yWPASg0OEkKA4tiwYf2',
       name: 'Binh An',
       avatarUrl:
         'https://res.cloudinary.com/dvujyxh7e/image/upload/c_scale,w_48/v1592405731/spiderman_zlrtx0.jpg',
@@ -55,10 +89,10 @@ export const Project = {
       listPosition: 1,
       createdAt: '2020-06-12T14:40:01.262Z',
       updatedAt: '2020-06-12T14:40:01.262Z',
-      reporterId: 'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
+      reporterId: 'qCCLitIicDSoYri9HktzwenWeBq2',
       userIds: [
-        'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
-        '7ac265f9-b9ac-443f-a2b2-795682e579a4',
+        'qCCLitIicDSoYri9HktzwenWeBq2',
+        'qgnw1SYg9xgOXf3bT5aKJheP9643',
       ],
     },
     {
@@ -72,10 +106,10 @@ export const Project = {
       listPosition: 2,
       createdAt: '2020-06-12T14:40:01.262Z',
       updatedAt: '2020-06-12T14:40:01.262Z',
-      reporterId: 'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
+      reporterId: 'qCCLitIicDSoYri9HktzwenWeBq2',
       userIds: [
-        'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
-        '94502aad-c97f-43e1-a9d1-28cf3e4937a7',
+        'qCCLitIicDSoYri9HktzwenWeBq2',
+        'refX8wo6qRQDykJOLB1mJHwRdQX2',
       ],
     },
     {
@@ -89,8 +123,8 @@ export const Project = {
       listPosition: 3,
       createdAt: '2020-06-12T14:40:01.346Z',
       updatedAt: '2020-06-12T14:40:01.346Z',
-      reporterId: 'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
-      userIds: ['081ccaa1-5595-4621-8074-ede4927e67b0'],
+      reporterId: 'qCCLitIicDSoYri9HktzwenWeBq2',
+      userIds: ['pk0inEQE3yWPASg0OEkKA4tiwYf2'],
     },
     {
       id: '9451',
@@ -103,8 +137,8 @@ export const Project = {
       listPosition: 1,
       createdAt: '2020-06-12T14:40:01.262Z',
       updatedAt: '2020-06-12T14:48:00.807Z',
-      reporterId: 'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
-      userIds: ['d65047e5-f4cf-4caa-9a38-6073dcbab7d1'],
+      reporterId: 'qCCLitIicDSoYri9HktzwenWeBq2',
+      userIds: ['qCCLitIicDSoYri9HktzwenWeBq2'],
     },
     {
       id: '9631',
@@ -118,10 +152,10 @@ export const Project = {
       listPosition: 2,
       createdAt: '2020-06-12T14:40:01.350Z',
       updatedAt: '2020-06-12T14:51:09.653Z',
-      reporterId: 'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
+      reporterId: 'qCCLitIicDSoYri9HktzwenWeBq2',
       userIds: [
-        '610451aa-10c8-4d7e-9363-311357c0b0dd',
-        '94502aad-c97f-43e1-a9d1-28cf3e4937a7',
+        'XnY4TAu295bHzbnwgjsYA7q8V9S2',
+        'refX8wo6qRQDykJOLB1mJHwRdQX2',
       ],
     },
     {
@@ -135,8 +169,8 @@ export const Project = {
       listPosition: 1,
       createdAt: '2020-06-12T14:40:01.304Z',
       updatedAt: '2020-06-12T14:52:02.173Z',
-      reporterId: 'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
-      userIds: ['d65047e5-f4cf-4caa-9a38-6073dcbab7d1'],
+      reporterId: 'qCCLitIicDSoYri9HktzwenWeBq2',
+      userIds: ['qCCLitIicDSoYri9HktzwenWeBq2'],
     },
     {
       id: '9548',
@@ -149,8 +183,8 @@ export const Project = {
       listPosition: 1,
       createdAt: '2020-06-12T14:40:01.304Z',
       updatedAt: '2020-06-12T14:52:02.173Z',
-      reporterId: 'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
-      userIds: ['d65047e5-f4cf-4caa-9a38-6073dcbab7d1'],
+      reporterId: 'qCCLitIicDSoYri9HktzwenWeBq2',
+      userIds: ['qCCLitIicDSoYri9HktzwenWeBq2'],
     },
     {
       id: '9584',
@@ -163,10 +197,10 @@ export const Project = {
       listPosition: 2,
       createdAt: '2020-06-12T14:40:00.000Z',
       updatedAt: '2020-06-12T14:51:00.000Z',
-      reporterId: 'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
+      reporterId: 'qCCLitIicDSoYri9HktzwenWeBq2',
       userIds: [
-        '081ccaa1-5595-4621-8074-ede4927e67b0',
-        '610451aa-10c8-4d7e-9363-311357c0b0dd',
+        'pk0inEQE3yWPASg0OEkKA4tiwYf2',
+        'XnY4TAu295bHzbnwgjsYA7q8V9S2',
       ],
     },
     {
@@ -180,8 +214,8 @@ export const Project = {
       listPosition: 3,
       createdAt: '2020-06-12T14:40:00.000Z',
       updatedAt: '2020-06-12T14:51:00.000Z',
-      reporterId: 'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
-      userIds: ['d65047e5-f4cf-4caa-9a38-6073dcbab7d1'],
+      reporterId: 'qCCLitIicDSoYri9HktzwenWeBq2',
+      userIds: ['qCCLitIicDSoYri9HktzwenWeBq2'],
     },
     {
       id: '9665',
@@ -194,10 +228,10 @@ export const Project = {
       listPosition: 1,
       createdAt: '2020-06-12T14:40:00.000Z',
       updatedAt: '2020-06-12T14:51:00.000Z',
-      reporterId: 'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
+      reporterId: 'qCCLitIicDSoYri9HktzwenWeBq2',
       userIds: [
-        '94502aad-c97f-43e1-a9d1-28cf3e4937a7',
-        '7ac265f9-b9ac-443f-a2b2-795682e579a4',
+        'refX8wo6qRQDykJOLB1mJHwRdQX2',
+        'qgnw1SYg9xgOXf3bT5aKJheP9643',
       ],
     },
     {
@@ -212,8 +246,8 @@ export const Project = {
       listPosition: 1,
       createdAt: '2020-06-28T15:30:00.000Z',
       updatedAt: '2020-06-28T16:30:00.000Z',
-      reporterId: 'd65047e5-f4cf-4caa-9a38-6073dcbab7d1',
-      userIds: ['d65047e5-f4cf-4caa-9a38-6073dcbab7d1'],
+      reporterId: 'qCCLitIicDSoYri9HktzwenWeBq2',
+      userIds: ['qCCLitIicDSoYri9HktzwenWeBq2'],
     },
   ],
 };
