@@ -19,11 +19,9 @@ export class AuthController {
 
   db = admin.firestore();
   firebaseAuth = firebase.auth();
-  
 
   @Post()
-  // eslint-disable-next-line @typescript-eslint/explicit-module-boundary-types
-  async login(@Body() body): Promise<User> {
+  async login(@Body() body: { email, password }): Promise<User> {
 
     const credetial = await this.firebaseAuth.signInWithEmailAndPassword(body.email, body.password);
     // this.authService.updateUserData(credetial.user)
@@ -31,7 +29,7 @@ export class AuthController {
     // .catch(err => throwError(err));
 
     const currentUser = firebaseHelper.firestore.getDocument(this.db, 'users', credetial.user.uid);
-    return currentUser;
+    return currentUser || null;
   }
 
 }

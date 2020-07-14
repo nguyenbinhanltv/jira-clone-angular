@@ -50,6 +50,18 @@ export class ProjectService {
       ...state,
       ...project
     }));
+
+    const newProject = this.store.getValue();
+
+    this.http
+      .post<JProject>(`${this.baseUrl}/project`, newProject)
+      .pipe(
+        catchError((err) => {
+          this.store.setError(err);
+          return of(err);
+        })
+      )
+      .subscribe();
   }
 
   updateIssue(issue: JIssue) {

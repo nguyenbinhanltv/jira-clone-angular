@@ -31,7 +31,7 @@ export interface Project {
   issue: Array<Issue>;
 }
 
-export const Project = {
+export const ProjectData = {
   id: '140892',
   name: 'ITSS Angular Jira Clone',
   url: 'https://github.com/nguyenbinhanltv/jira-clone-angular',
