@@ -1,0 +1,75 @@
+<div class="login">
+  <div class="form">
+    <form nz-form [formGroup]="validateForm" (ngSubmit)="submitForm()">
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Email!">
+          <nz-input-group nzPrefixIcon="user">
+            <input formControlName="email" nz-input placeholder="Email" />
+          </nz-input-group>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control nzErrorTip="Please input your Password!">
+          <nz-input-group [nzSuffix]="suffixTemplate" nzPrefixIcon="lock">
+            <input [type]="passwordVisible ? 'text' : 'password'" nz-input formControlName="password"
+              placeholder="Password" />
+          </nz-input-group>
+          <ng-template #suffixTemplate>
+            <i nz-icon [nzType]="passwordVisible ? 'eye-invisible' : 'eye'"
+              (click)="passwordVisible = !passwordVisible"></i>
+          </ng-template>
+        </nz-form-control>
+      </nz-form-item>
+      <nz-form-item>
+        <nz-form-control style="display: flex; justify-content: center; align-items: center;">
+          <button nz-button nzType="primary" [disabled]="!validateForm.valid" style="margin-bottom: 5px;">Log
+            in</button>
+        </nz-form-control>
+      </nz-form-item>
+    </form>
+  </div>
+</div>
+
+<div class="container mx-auto p-5">
+  <h1 class="text-3xl text-center">A simplified Jira clone built with Angular 9, Akita, Nestjs and Firebase</h1>
+
+  <img class="mx-auto w-auto md:max-w-2xl" src="assets/img/jira-clone-tech-stack.png" />
+
+  <h3 class="text-center m-10">
+    <a class="text-lg text-blue-500 hover:text-blue-800"
+      href="https://github.com/nguyenbinhanltv/jira-clone-angular">Visit the work in progress
+      app</a> |
+    <a class="text-lg text-blue-500 hover:text-blue-800"
+      href="https://github.com/nguyenbinhanltv/jira-clone-angular">View front-end code</a>
+  </h3>
+
+  <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md" role="alert">
+    <div class="flex">
+      <div class="py-1"><svg class="fill-current h-6 w-6 text-teal-500 mr-4" xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 20 20">
+          <path
+            d="M2.93 17.07A10 10 0 1 1 17.07 2.93 10 10 0 0 1 2.93 17.07zm12.73-1.41A8 8 0 1 0 4.34 4.34a8 8 0 0 0 11.32 11.32zM9 11V9h2v6H9v-4zm0-6h2v2H9V5z" />
+        </svg></div>
+      <section>
+        <p class="font-bold">Work in progress!</p>
+        <p class="">
+          It is still <u>under development</u>.
+        </p>
+        <p class="pt-2">
+          I am planning to finish coding in about two weeks <u>(13 - 27 Jun 2020)</u> in my spare time.
+        </p>
+        <p class="pt-2">
+          In the meantime, I am gradually writing a series about how I built it step by step in my blog. Please visit <a
+            class="text-blue-500 hover:text-blue-800"
+            href="https://github.com/nguyenbinhanltv/jira-clone-angular">Github</a>
+        </p>
+      </section>
+    </div>
+  </div>
+  <div class="footer">
+    <p class="mt-8">
+      Made with <span style="color: #e25555;">&hearts;</span> in VietNam
+    </p>
+    <div>© 2020</div>
+  </div>
+</div>

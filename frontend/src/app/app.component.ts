@@ -4,6 +4,7 @@ import { environment } from '../environments/environment';
 import { ProjectQuery } from './project/state/project/project.query';
 import { ProjectService } from './project/state/project/project.service';
 import { GoogleAnalyticsService } from './core/services/google-analytics.service';
+import { AuthService } from './project/auth/auth.service';
 
 @Component({
   selector: 'app-root',
@@ -15,11 +16,12 @@ export class AppComponent implements AfterViewInit {
   constructor(
     public router: Router,
     public projectQuery: ProjectQuery,
-    private _cdr: ChangeDetectorRef,
-    private _projectService: ProjectService,
-    private _googleAnalytics: GoogleAnalyticsService
+    public authService: AuthService,
+    private cdr: ChangeDetectorRef,
+    private projectService: ProjectService,
+    private googleAnalytics: GoogleAnalyticsService,
   ) {
-    this._projectService.setLoading(true);
+    this.projectService.setLoading(true);
     if (environment.production) {
       this.handleGoogleAnalytics();
     }
@@ -28,12 +30,12 @@ export class AppComponent implements AfterViewInit {
   handleGoogleAnalytics() {
     this.router.events.subscribe((event) => {
       if (event instanceof NavigationEnd) {
-        this._googleAnalytics.sendPageView(event.urlAfterRedirects);
+        this.googleAnalytics.sendPageView(event.urlAfterRedirects);
       }
     });
   }
 
   ngAfterViewInit() {
-    this._cdr.detectChanges();
+    this.cdr.detectChanges();
   }
 }

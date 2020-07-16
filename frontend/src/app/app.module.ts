@@ -1,6 +1,6 @@
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
-import { ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NG_ENTITY_SERVICE_CONFIG } from '@datorama/akita-ng-entity-service';
@@ -11,7 +11,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NzIconModule } from 'ng-zorro-antd/icon';
 import { NzSpinModule } from 'ng-zorro-antd/spin';
-import { QuillModule } from 'ngx-quill'
+import { QuillModule } from 'ngx-quill';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,19 +19,20 @@ import { QuillModule } from 'ngx-quill'
     BrowserModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
+    FormsModule,
     HttpClientModule,
     AppRoutingModule,
     NzSpinModule,
     NzIconModule.forRoot([]),
     environment.production ? [] : AkitaNgDevtools,
     AkitaNgRouterStoreModule,
-    QuillModule.forRoot()    
+    QuillModule.forRoot()
   ],
   providers: [
     {
       provide: NG_ENTITY_SERVICE_CONFIG,
       useValue: { baseUrl: 'https://jsonplaceholder.typicode.com' }
-    }
+    },
   ],
   bootstrap: [AppComponent]
 })

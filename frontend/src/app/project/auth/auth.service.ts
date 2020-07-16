@@ -9,29 +9,36 @@ import { environment } from 'src/environments/environment';
 @Injectable({ providedIn: 'root' })
 export class AuthService {
   private baseUrl: string;
-  constructor(private _http: HttpClient, private _store: AuthStore) {
+  public isLogin: boolean = false;
+
+  constructor(
+    private http: HttpClient,
+    private store: AuthStore,
+    ) {
     this.baseUrl = environment.apiUrl;
   }
 
   login({ email = '', password = '' }: LoginPayload) {
-    this._store.setLoading(true);
-    this._http
+    this.store.setLoading(true);
+    this.http
       .post<JUser>(`${this.baseUrl}/auth`, {
         email,
         password
       })
       .pipe(
         map((user) => {
-          this._store.update((state) => ({
+          this.store.update((state) => ({
             ...state,
             ...user
           }));
+
+          this.isLogin = user !== null;
         }),
         finalize(() => {
-          this._store.setLoading(false);
+          this.store.setLoading(false);
         }),
         catchError((err) => {
-          this._store.setError(err);
+          this.store.setError(err);
           return of(err);
         })
       )
@@ -42,8 +49,13 @@ export class AuthService {
 export class LoginPayload {
   email: string;
   password: string;
-  constructor() {
-    this.email = 'nguyenbinhanltv@gmail.com';
-    this.password = '123456';
+  constructor({ email, password }: FormLogin) {
+    this.email = email;
+    this.password = password;
   }
+}
+
+export interface FormLogin {
+  email: string;
+  password: string;
 }

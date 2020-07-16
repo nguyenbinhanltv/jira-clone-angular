@@ -23,11 +23,11 @@ export class SettingsComponent implements OnInit {
   }
 
   constructor(
-    private _projectQuery: ProjectQuery,
-    private _projectService: ProjectService,
-    private _notification: NzNotificationService,
-    private _fb: FormBuilder,
-    private _router: Router
+    private projectQuery: ProjectQuery,
+    private projectService: ProjectService,
+    private notification: NzNotificationService,
+    private fb: FormBuilder,
+    private router: Router
   ) {
     this.categories = [
       ProjectCategory.BUSINESS,
@@ -38,14 +38,14 @@ export class SettingsComponent implements OnInit {
 
   ngOnInit(): void {
     this.initForm();
-    this._projectQuery.all$.pipe(untilDestroyed(this)).subscribe((project) => {
+    this.projectQuery.all$.pipe(untilDestroyed(this)).subscribe((project) => {
       this.project = project;
       this.updateForm(project);
     });
   }
 
   initForm() {
-    this.projectForm = this._fb.group({
+    this.projectForm = this.fb.group({
       name: ['', NoWhitespaceValidator()],
       url: [''],
       description: [''],
@@ -64,14 +64,14 @@ export class SettingsComponent implements OnInit {
 
   submitForm() {
     const formValue: Partial<JProject> = this.projectForm.getRawValue();
-    this._projectService.updateProject(formValue);
-    this._notification.create(
+    this.projectService.updateProject(formValue);
+    this.notification.create(
       'success',
       'Changes have been saved successfully.',
       '');
   }
 
   cancel() {
-    this._router.navigate(['/']);
+    this.router.navigate(['/']);
   }
 }

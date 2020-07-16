@@ -9,13 +9,23 @@ import { AuthService, LoginPayload } from './auth/auth.service';
 })
 export class ProjectComponent implements OnInit {
   expanded: boolean;
-  constructor(private _projectService: ProjectService, private _authService: AuthService) {
+  constructor(
+    private projectService: ProjectService,
+    private authService: AuthService
+  ) {
     this.expanded = true;
   }
 
   ngOnInit(): void {
-    this._authService.login(new LoginPayload());
-    this._projectService.getProject();
+    if (typeof(Storage) !== undefined) {
+      this.authService.login(
+        {
+          email: sessionStorage.getItem('email'),
+          password: sessionStorage.getItem('password')
+        }
+      );
+    }
+    this.projectService.getProject();
     this.handleResize();
   }
 
