@@ -1,4 +1,5 @@
 # A simplified Jira clone built with Angular 9 and Akita
+## Trello Version 2.0
 
 ## Tech stack
 
