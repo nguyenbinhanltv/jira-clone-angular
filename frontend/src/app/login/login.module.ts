@@ -16,6 +16,7 @@ import { IconDefinition } from '@ant-design/icons-angular';
 import * as AllIcons from '@ant-design/icons-angular/icons';
 import { registerLocaleData } from '@angular/common';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { JiraControlModule } from '@trungk18/jira-control/jira-control.module';
 
 registerLocaleData(en);
 
@@ -33,6 +34,7 @@ const icons: IconDefinition[] = Object.keys(antDesignIcons).map(key => antDesign
     FormsModule,
     DragDropModule,
     NgZorroAntdModule,
+    JiraControlModule,
     NzIconModule.forChild(icons)
   ],
   providers: [

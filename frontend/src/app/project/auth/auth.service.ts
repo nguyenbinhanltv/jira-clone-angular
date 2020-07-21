@@ -16,6 +16,7 @@ export class AuthService {
     private store: AuthStore,
     ) {
     this.baseUrl = environment.apiUrl;
+    console.log(this.store.getValue());
   }
 
   login({ email = '', password = '' }: LoginPayload) {

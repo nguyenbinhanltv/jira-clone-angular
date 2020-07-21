@@ -11,16 +11,21 @@ const routes: Routes = [
   {
     path: 'wip',
     loadChildren: () =>
-      import('./work-in-progress/work-in-progress.module').then(
-        (m) => m.WorkInProgressModule
-      )
+      import('./work-in-progress/work-in-progress.module').then((m) => m.WorkInProgressModule)
   },
   {
     path: '',
     redirectTo: 'login',
     pathMatch: 'full'
   },
-  { path: 'login', loadChildren: () => import('./login/login.module').then(m => m.LoginModule) },
+  {
+    path: 'login',
+    loadChildren: () => import('./login/login.module').then((m) => m.LoginModule)
+  },
+  {
+    path: '**',
+    loadChildren: () => import('./login/login.module').then((m) => m.LoginModule)
+  }
 ];
 
 @NgModule({

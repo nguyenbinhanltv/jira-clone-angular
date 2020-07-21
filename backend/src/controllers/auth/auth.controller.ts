@@ -23,13 +23,15 @@ export class AuthController {
   @Post()
   async login(@Body() body: { email, password }): Promise<User> {
 
-    const credetial = await this.firebaseAuth.signInWithEmailAndPassword(body.email, body.password);
+    await this.firebaseAuth.signInWithEmailAndPassword(body.email, body.password);
     // this.authService.updateUserData(credetial.user)
     // .then(data => console.log(data))
     // .catch(err => throwError(err));
 
-    const currentUser = firebaseHelper.firestore.getDocument(this.db, 'users', credetial.user.uid);
-    return currentUser || null;
+    const authState = await this.firebaseAuth.currentUser;
+
+    const currentUser = firebaseHelper.firestore.getDocument(this.db, 'users', authState.uid);
+    return currentUser;
   }
 
 }

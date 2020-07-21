@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     public authService: AuthService,
     private notification: NzNotificationService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {

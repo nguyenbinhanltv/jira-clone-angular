@@ -32,3 +32,7 @@ input {
   @include flexBoxCenter();
   flex-direction: column;
 }
+
+.trello-login {
+  @include flexBoxCenter();
+}

@@ -10,7 +10,10 @@ import { ProjectState } from './state/project/project.store';
   providedIn: 'root'
 })
 export class ProjectGuard implements CanActivate {
-  constructor(private _projectQuery: ProjectQuery, private _projectService: ProjectService) {}
+  constructor(
+    private projectQuery: ProjectQuery,
+    private projectService: ProjectService
+  ) {}
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this.getFromStoreOrApi().pipe(
       switchMap(() => of(true)),
@@ -19,10 +22,10 @@ export class ProjectGuard implements CanActivate {
   }
 
   getFromStoreOrApi(): Observable<ProjectState> {
-    return combineLatest([this._projectQuery.all$, this._projectQuery.isLoading$]).pipe(
+    return combineLatest([this.projectQuery.all$, this.projectQuery.isLoading$]).pipe(
       map(([state, loading]) => {
         if (!loading) {
-          this._projectService.getProject();
+          this.projectService.getProject();
         }
         return state;
       }),
